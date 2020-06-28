@@ -1,4 +1,4 @@
-pragma solidity ^0.4.0;
+pragma solidity >=0.4.21 <0.7.0;
 pragma experimental ABIEncoderV2;
 contract Event {
     
@@ -7,7 +7,7 @@ contract Event {
     uint public availableTicket;
     uint public  ticketAmount;
     uint public eventDeadline;
-    address  eventBenificiary;
+    address payable  eventBenificiary;
     State  state;
     mapping(address => uint) public amount;
     mapping(address => uint) public ticketPurchase;
@@ -15,7 +15,7 @@ contract Event {
     uint amountCollected;
     
     
-    constructor(string nameOfEvent, uint ticketCount, uint ticketCharges , uint durationInMinute, address benificiaryAddress) public {
+    constructor(string memory nameOfEvent, uint ticketCount, uint ticketCharges , uint durationInMinute, address benificiaryAddress) public {
         eventName = nameOfEvent;
         availableTicket = ticketCount;
         ticketAmount = ticketCharges * 1 wei ;
@@ -24,14 +24,14 @@ contract Event {
         owner =msg.sender; 
     }
     
-    function checkState(State pos) internal returns(string){
+    function checkState(State pos) internal returns(string memory){
         if(pos==State.Active){ return "Active";}
         else if(pos==State.Failed){ return "Failed";}
         else if(pos==State.Completed){ return "Completed";}
         else {return "PaidOut";}
     }
     
-    function getState() public view returns(string){
+    function getState() public  returns(string memory){
         return checkState(state);
     }
 
