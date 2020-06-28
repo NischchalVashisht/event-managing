@@ -3,7 +3,7 @@
 Objective of Event-O  is to provide a platform where user can create event and publish it's detail over network so interested party can come and purchase event ticket. In the end all collected amount is transfer to event creator.
 
 #Approach
-![](filename image.png)
+![](https://github.com/NischchalVashisht/event-managing/blob/master/images/image.png)
 
 ### Prequisite
 1. truffle
